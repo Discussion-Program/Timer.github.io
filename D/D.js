@@ -1,5 +1,6 @@
 window.addEventListener('load',()=>{
     let time =document.getElementById('time');
+    let now =document.getElementById('now');
     time.innerText = "Loading..."
 
     let hr =Number(prompt('hr'));
@@ -11,6 +12,7 @@ window.addEventListener('load',()=>{
     let S;
 
     let allTime = hr*60*60+mn*60+sc;
+    let date = new Date();
 
     function syncDelay(milliseconds){
         var start = new Date().getTime();
@@ -38,9 +40,11 @@ window.addEventListener('load',()=>{
             }
         }
         time.innerText=`${H}:${M}:${S}`;
+        now.innerText = date;
     }
 
     function ani(){
+        date = new Date();
         syncDelay(1000);
         set();
         if(H<=0&&M<=0&&S<=0)return;
